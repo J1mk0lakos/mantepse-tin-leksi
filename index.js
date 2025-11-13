@@ -36,7 +36,7 @@ const userInput = document.getElementById("userInput");
 const guideButton = document.getElementById("guideBTN");
 const guideDIV = document.getElementById("guideDIV1");
 
-const words = ['ΣΠΙΤΙ', 'ΒΙΒΛΙΟ', 'ΡΑΔΙΟ', 'ΦΙΛΟΣ', 'ΚΑΦΕΣ', 'ΛΟΓΟΣ', 'ΠΕΝΤΕ', 'ΤΡΕΙΣ', 'ΜΑΤΙΑ', 'ΑΥΤΟΣ', 'ΒΟΥΝΟ', 'ΑΕΡΑΣ', 'ΗΛΙΟΣ', 'ΣΧΟΛΗ'];
+const words = ['ΣΠΙΤΙ', 'ΡΑΔΙΟ', 'ΦΙΛΟΣ', 'ΚΑΦΕΣ', 'ΛΟΓΟΣ', 'ΠΕΝΤΕ', 'ΤΡΕΙΣ', 'ΜΑΤΙΑ', 'ΑΥΤΟΣ', 'ΒΟΥΝΟ', 'ΑΕΡΑΣ', 'ΗΛΙΟΣ', 'ΣΧΟΛΗ'];
 
 startButton.onclick = function(){
     guideButton.style.display = 'none'
@@ -457,3 +457,4 @@ var cleartable = function(){
 
 var word1char = words.charAt(1)
 console.log(word1char)
+
