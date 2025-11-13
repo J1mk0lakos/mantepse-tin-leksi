@@ -19,11 +19,13 @@ body{
 }
 
 #guideBTN{
-    height: 60px;
-    width: 310px;
+    height: 50px;
+    width: 200px;
+    max-width: 310px;
+    max-height: 60px;
     text-align: center;
     border-radius: 10px;
-    font-size: 2em;
+    font-size: 1em;
     background-color: rgb(20, 11, 148);
     color: white;
     padding-top: 5px;
@@ -56,11 +58,14 @@ body{
 }
 
 #startBTN{
-    height: 60px;
-    width: 310px;
+    height: 50px;
+    width: 200px;
+    max-width: 310px;
+    max-height: 60px;
+    text-align: center;
     text-align: center;
     border-radius: 10px;
-    font-size: 2em;
+    font-size: 1em;
     background-color: green;
     color: white;
     padding-top: 5px;
