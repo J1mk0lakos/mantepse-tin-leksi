@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Μάντεψε την λέξη</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="wordleTitle">Μάντεψε την <span id="titleSpan">λέξη</span></h1>
+    <hr>
+
+    <div id="guideBTNDIV">
+        <button id="guideBTN">Οδηγίες παιχνιδιού</button>
+    </div>
+
+    <div id="guideDIV1">
+        <h1>Σκοπός του παιχνιδιου:</h1>
+        <div id="guideDIV2">
+            <p>Πρέπει να βρεις την λέξη που σκέφτομαι. Η λέξη αυτή έχει 5 γράμματα και έχεις συνολικα 6 προσπάθειες</p>
+        </div>
+        <h1>Λειτουργία παιχνιδιου:</h1>
+        <div id="guideDIV2">
+            <p>Γράφεις μία λέξη με 5 γράμματα. Αν ο χαρακτήρας από την λέξη που έγραψες βρίσκεται στην ίδια θέση με την λέξη που ψάχνεις, το κουτάκι γίνεται πράσινο. Αν ένας χαρακτήρας από την λέξη που έγραψες βρίσκεται μέσα στην λέξη που ψάχνεις να βρείς, αλλά όχι στην σωστή θέση, τότε το κουτάκι γίνεται πορτοκαλί. Διαφορετικά, το κουτάκι παραμένει γκρι.</p>
+        </div>
+        <h1>Παράδειγμα:</h1>
+        <div id="guideDIV2">
+            <p>Έστω ότι η λέξη που ψάχνεις να βρείς είναι "ΣΠΙΤΙ". Εσύ δίνεις την λέξη "ΡΑΔΙΟ". Τότε το κουτάκι του "Ι" θα γίνει πορτοκαλί, καθώς το "Ι" εμφανίζεται στην λέξη "ΣΠΙΤΙ". Έστω οτι δίνεις μετά την λέξη "ΠΑΙΔΙ". Τώρα, τα δύο "Ι" θα είναι σε πράσινο κουτάκι, καθώς είναι στην ίδια θέση με την λέξη "ΣΠΙΤΙ". Έτοιμος;</p>
+        </div>
+    </div>
+
+    <div id="startBTNDIV">
+        <button id="startBTN">Ξεκίνα το παιχνίδι</button>
+    </div>
+
+    
+    <form action="" id="mainBoard">
+
+            <label for="" id="labelword1"><span id="word1span1" class="boxword1"> </span><span id="word1span2" class="boxword1"> </span><span id="word1span3" class="boxword1"> </span><span id="word1span4" class="boxword1"></span><span id="word1span5" class="boxword1"> </span></label>
+            <br>
+            <label for=""><span id="word2span1" class="boxword2"></span><span id="word2span2" class="boxword2" ></span><span id="word2span3" class="boxword2"></span><span id="word2span4" class="boxword2"></span><span id="word2span5" class="boxword2"></span></label>
+            <br>
+            <label for=""><span id="word3span1"  class="boxword3"></span><span id="word3span2" class="boxword3"></span><span id="word3span3" class="boxword3"></span><span id="word3span4" class="boxword3"></span><span id="word3span5" class="boxword3"></span></label>
+            <br>
+            <label for=""><span id="word4span1"  class="boxword4"></span><span id="word4span2" class="boxword4"></span><span id="word4span3" class="boxword4"></span><span id="word4span4" class="boxword4"></span><span id="word4span5" class="boxword4"></span></label>
+            <br>
+            <label for=""><span id="word5span1" class="boxword5"></span><span id="word5span2" class="boxword5"></span><span id="word5span3" class="boxword5"></span><span id="word5span4" class="boxword5"></span><span id="word5span5" class="boxword5"></span></label>
+    </form>
+
+    <div id="userInputDiv">
+        <br>
+        <label for="" id="userInputLabel">Ποιά λέξη νομίζεις ότι σκέφτομαι;</label>
+        <br>
+        <input type="text" id="userInput"> 
+        <button id="submitBTN">Submit</button> 
+    </div>
+
+
+
+
+    <script src="index.js"></script>
+</body>
+</html>

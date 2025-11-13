@@ -1,0 +1,221 @@
+body{
+    background-color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#mainBoard{
+    display: none;
+}
+
+#wordleTitle{
+    text-align: center;
+    font-size: 2.5em;
+    color: white;
+    font-weight: bold;
+}
+
+#titleSpan{
+    color: red;
+}
+
+#startBTNDIV{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#startBTN{
+    height: 60px;
+    width: 310px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 2em;
+    background-color: green;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left:15px;
+    padding-right: 15px;
+    cursor: pointer;
+    border-color: rgb(54, 101, 112);
+    border-width: 4px;
+}
+#startBTN:hover{
+    transition: background-color 0.1s;
+    background-color: rgb(62, 212, 62);
+}
+
+#guideBTNDIV{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#guideBTN{
+    height: 60px;
+    width: 310px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 2em;
+    background-color: rgb(20, 11, 148);
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left:15px;
+    padding-right: 15px;
+    cursor: pointer;
+    border-color: rgb(54, 101, 112);
+    border-width: 4px;
+}
+#guideBTN:hover{
+    transition: background-color 0.1s;
+    background-color: rgb(26, 12, 223);
+}
+
+#guideDIV1{
+    display: none;
+    font-size: 0.8em;
+}
+
+#guideDIV2{
+    font-size: 1.2em;
+}
+
+
+form {
+    background-color: white;
+    width: 250px;
+    height: 310px;
+    max-width: 250px;
+    max-height: 310px;
+    margin: auto;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+}
+
+label{
+    font-size: 1.7em;
+    font-weight: bold;
+    margin-bottom: 2px;
+    margin-top: 2px;
+
+}
+
+#userInputDiv{
+    text-align: center;
+    display: none;
+}
+
+#userInputLabel{
+    font-size: 1.5em;
+}
+
+#userInput{
+    margin-top: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    border-width: 1px;
+    font-size: 1.2em;
+}
+
+#submitBTN{
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.5em;
+    background-color: green;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left:15px;
+    padding-right: 15px;
+    cursor: pointer;
+    border-color: rgb(126, 153, 160);
+}
+#submitBTN:hover{
+    transition: background-color 0.1s;
+    background-color: rgb(62, 212, 62);
+}
+
+
+.boxword1{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 23px;
+    height: 17px;
+    background-color: lightgray;
+    border: 0px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.boxword2{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 23px;
+    height: 17px;
+    background-color: lightgray;
+    border: 0px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    transition: background-color 0.3s ease;
+}
+.boxword3{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 23px;
+    height: 17px;
+    background-color: lightgray;
+    border: 0px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    transition: background-color 0.3s ease;
+}
+.boxword4{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 23px;
+    height: 17px;
+    background-color: lightgray;
+    border: 0px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    transition: background-color 0.3s ease;
+}
+.boxword5{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 23px;
+    height: 17px;
+    background-color: lightgray;
+    border: 0px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    transition: background-color 0.3s ease;
+}
+
