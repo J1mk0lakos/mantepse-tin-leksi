@@ -27,7 +27,7 @@ body{
     text-align: center;
     text-align: center;
     border-radius: 10px;
-    font-size: 0.7em;
+    font-size: 0.4em;
     background-color: rgb(20, 11, 148);
     color: white;
     padding-top: 5px;
@@ -68,7 +68,7 @@ body{
     text-align: center;
     text-align: center;
     border-radius: 10px;
-    font-size: 0.7em;
+    font-size: 0.4em;
     background-color: green;
     color: white;
     padding-top: 5px;
@@ -227,4 +227,5 @@ label{
     margin-right: 3px;
     transition: background-color 0.3s ease;
 }
+
 
