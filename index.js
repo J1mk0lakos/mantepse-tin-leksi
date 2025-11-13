@@ -458,3 +458,4 @@ var cleartable = function(){
 var word1char = words.charAt(1)
 console.log(word1char)
 
+
