@@ -36,7 +36,7 @@ const userInput = document.getElementById("userInput");
 const guideButton = document.getElementById("guideBTN");
 const guideDIV = document.getElementById("guideDIV1");
 
-const words = ['ΣΠΙΤΙ', 'ΒΙΒΛΙΟ', 'ΡΑΔΙΟ', 'ΦΙΛΟΣ'];
+const words = ['ΣΠΙΤΙ', 'ΒΙΒΛΙΟ', 'ΡΑΔΙΟ', 'ΦΙΛΟΣ', 'ΚΑΦΕΣ', 'ΛΟΓΟΣ', 'ΠΕΝΤΕ', 'ΤΡΕΙΣ', 'ΜΑΤΙΑ', 'ΑΥΤΟΣ', 'ΒΟΥΝΟ', 'ΑΕΡΑΣ', 'ΗΛΙΟΣ', 'ΣΧΟΛΗ'];
 
 startButton.onclick = function(){
     guideButton.style.display = 'none'
@@ -69,7 +69,7 @@ var startGame = function(){
                 if (userWord === userWord.toUpperCase()){
                     tries++;
                     if (userWord==randomWord){
-                        alert("Congratulations! You have won!")
+                        alert(`Συγχαρητήρια! Βρήκες την λέξη ${randomWord} σωστά!`)
                         startButton.style.display = 'inline-block';
                         mainBoard.style.display = 'none';
                         userInputDiv.style.display = 'none';
@@ -86,7 +86,7 @@ var startGame = function(){
                         } else if (tries == 5){
                             word5(randomWord, userWord);
                         } else {
-                            alert("You don't have any other tries left!")
+                            alert("Οι προσπάθειες τελείωσαν! Ξαναπροσπάθησε")
                             startButton.style.display = 'inline-block';
                             mainBoard.style.display = 'none';
                             userInputDiv.style.display = 'none';
@@ -97,7 +97,7 @@ var startGame = function(){
                     userWord = userWord.toUpperCase();
                     tries++;
                     if (userWord==randomWord){
-                        alert("Congratulations! You have won!")
+                        alert(`Συγχαρητήρια! Βρήκες την λέξη ${randomWord} σωστά!`)
                         startButton.style.display = 'inline-block';
                         mainBoard.style.display = 'none';
                         userInputDiv.style.display = 'none';
@@ -114,7 +114,7 @@ var startGame = function(){
                         } else if (tries == 5){
                             word5(randomWord, userWord);
                         } else {
-                            alert("You don't have any other tries left!")
+                            alert("Οι προσπάθειες τελείωσαν! Ξαναπροσπάθησε")
                             startButton.style.display = 'inline-block';
                             mainBoard.style.display = 'none';
                             userInputDiv.style.display = 'none';
@@ -123,7 +123,7 @@ var startGame = function(){
                     }
                 }
             } else {
-                alert("The given word MUST have 5 letters.")
+                alert("Η λέξη που θα δώσεις πρέπει να έχει 5 γράμματα")
                 startButton.style.display = 'inline-block';
                 mainBoard.style.display = 'none';
                 userInputDiv.style.display = 'none';
