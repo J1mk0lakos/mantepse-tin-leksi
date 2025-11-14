@@ -84,7 +84,7 @@ var startGame = function(categoryId){
     console.log("Game Started!")
     var words;
     if (categoryId == "categorySports"){
-        words = 'ΜΠΑΛΑAA'
+        words = wordsSports
     } else if(categoryId == "categoryGeo"){
         words = wordsGeo
     } else if (categoryId == "categoryAnimals"){
@@ -664,3 +664,4 @@ var cleartable = function(){
 
 var word1char = words.charAt(1)
 console.log(word1char)
+
