@@ -27,7 +27,7 @@ body{
     text-align: center;
     text-align: center;
     border-radius: 10px;
-    font-size: 0.6em;
+    font-size: 0.7em;
     background-color: rgb(20, 11, 148);
     color: white;
     padding-top: 5px;
@@ -68,7 +68,7 @@ body{
     text-align: center;
     text-align: center;
     border-radius: 10px;
-    font-size: 0.6em;
+    font-size: 0.7em;
     background-color: green;
     color: white;
     padding-top: 5px;
@@ -89,12 +89,66 @@ body{
     margin-bottom: 20px;
 }
 
+#dropdownDIV{
+    display: none;
+    position: relative;
+    text-align: center;
+}
+
+#dropdownBTN{
+    text-align: center;
+    white-space: nowrap;
+    height: 50px;
+    width: 220px;
+    max-width: 310px;
+    max-height: 60px;
+    border-radius: 10px;
+    font-size: 0.7em;
+    background-color: rgb(37, 209, 209);
+    border-color: rgb(54, 101, 112);
+    border-width: 4px;
+    color: black;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+#dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.categories{
+    display: block;
+    position: relative;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+#dropdownContent{
+    display: none;
+    position: relative;
+    border-color: rgb(54, 101, 112);
+    border-width: 20px;
+    text-align: center;
+    box-shadow: 2px 2px 5px black;
+}
+#dropdown:hover #dropdownContent{
+    display: block;
+    position: relative;
+    text-align: center;
+}
+#dropdown:hover button{
+    background-color: rgb(52, 140, 223);
+}
+#dropdown a:hover{
+    background-color: rgb(52, 140, 223);
+}
+
 form {
     background-color: white;
-    width: 250px;
+    width: 350px;
     height: 310px;
-    max-width: 250px;
-    max-height: 310px;
+
     margin: auto;
     padding: 8px;
     border-radius: 10px;
@@ -227,6 +281,4 @@ label{
     margin-right: 3px;
     transition: background-color 0.3s ease;
 }
-
-
 
