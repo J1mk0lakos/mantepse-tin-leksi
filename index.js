@@ -47,11 +47,14 @@ const guideButton = document.getElementById("guideBTN");
 const guideDIV = document.getElementById("guideDIV1");
 const dropdownMenu = document.getElementById("dropdownDIV");
 const categories = document.querySelectorAll('.categories');
+const categorySports = document.getElementById("categorySports")
+const categoryCountries = document.getElementById("categoryCountries");
 
 
 const wordsSports = ['ΜΠΑΛΑ', 'ΑΘΛΗΤΗΣ', 'ΑΓΩΝΑΣ', 'ΣΤΟΧΟΣ', 'ΤΕΡΜΑ', 'ΟΜΑΔΑ', 'ΝΙΚΗΤΗΣ'];
 const wordsGeo = ['ΒΟΥΝΟ', 'ΛΙΜΝΗ', 'ΠΟΤΑΜΙ', 'ΠΕΔΙΑΔΑ', 'ΘΑΛΑΣΣΑ', 'ΧΑΡΤΗΣ', 'ΚΟΣΜΟΣ', 'ΗΠΕΙΡΟΣ'];
 const wordsAnimals = ['ΛΥΚΟΣ', 'ΤΙΓΡΗ', 'ΖΕΒΡΑ', 'ΑΛΟΓΟ', 'ΓΑΤΑΚΙ', 'ΣΚΥΛΟΣ', 'ΠΙΘΗΚΟΣ', 'ΑΡΚΟΥΔΑ', 'ΔΕΛΦΙΝΙ'];
+const wordsCountries = ['ΙΤΑΛΙΑ', 'ΠΕΡΟΥ', 'ΓΚΑΝΑ', 'ΤΟΝΓΚΑ', 'ΙΝΔΙΑ', 'ΚΥΠΡΟΣ', 'ΜΑΛΤΑ', 'ΓΑΛΛΙΑ', 'ΒΕΛΓΙΟ', 'ΛΙΒΥΗ', 'ΜΑΡΟΚΟ', 'ΜΕΞΙΚΟ', 'ΣΕΡΒΙΑ', 'ΚΕΝΥΑ', 'ΑΓΓΛΙΑ', 'ΕΛΛΑΔΑ', 'ΚΑΤΑΡ']
 
 startButton.onclick = function(){
     guideButton.style.display = 'none'
@@ -89,36 +92,29 @@ var startGame = function(categoryId){
         words = wordsGeo
     } else if (categoryId == "categoryAnimals"){
         words = wordsAnimals
-    }  
-    var randomWordNumber = Math.ceil(words.length * Math.random());
-    var randomWord = words[randomWordNumber];
-    if (randomWord == undefined){
-        randomWordNumber = Math.ceil(words.length * Math.random());
-        randomWord = words[randomWordNumber];
-    }
+    } else if (categoryId == "categoryCountries"){
+        words = wordsCountries
+    }   
+    var randomWordNumber = Math.floor(Math.random() * words.length);
+    var randomWord = words[randomWordNumber]
     if (randomWord.length == 5){
-        word1span6.style.display = "none";
-        word1span7.style.display = "none";
-        word2span6.style.display = "none";
-        word2span7.style.display = "none";
-        word3span6.style.display = "none";
-        word3span7.style.display = "none";
-        word4span6.style.display = "none";
-        word4span7.style.display = "none";
-        word5span6.style.display = "none";
-        word5span7.style.display = "none";
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 6; j <= 7; j++) {
+                document.getElementById(`word${i}span${j}`).style.display = "none";
+            }
+        }
+
     } else if(randomWord.length == 6){
-        word1span7.style.display = "none";
-        word2span7.style.display = "none";
-        word3span7.style.display = "none";
-        word4span7.style.display = "none";
-        word5span7.style.display = "none";
+        for (let i = 1; i <= 5; i++) {
+            document.getElementById(`word${i}span7`).style.display = "none";
+        }
     }
     var tries = 0;
     var userWord = '';
 
     console.log(randomWord)
-    submitBTN.onclick = function(){
+    userInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
             userWord = userInput.value
             userInput.value = "";
             if (userWord.includes(" ")){
@@ -161,7 +157,52 @@ var startGame = function(categoryId){
                 userInputDiv.style.display = 'none';
                 cleartable();
             }
-
+        
+        }
+    });
+    submitBTN.onclick = function(){
+        userWord = userInput.value
+        userInput.value = "";
+        if (userWord.includes(" ")){
+            userWord = userWord.replace(/\s+/g, "");
+        }
+        userWord = userWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+        if (userWord.length == randomWord.length){
+                tries++;
+                if (userWord==randomWord){
+                    alert(`Συγχαρητήρια! Βρήκες την λέξη ${randomWord} σωστά!`)
+                     startButton.style.display = 'inline-block';
+                    mainBoard.style.display = 'none';
+                    userInputDiv.style.display = 'none';
+                    cleartable();
+                } else {
+                    wordLength = randomWord.length
+                    if (tries == 1){
+                        word1(randomWord, userWord, wordLength);
+                    } else if (tries == 2){
+                        word2(randomWord, userWord, wordLength);
+                    } else if (tries == 3){
+                        word3(randomWord, userWord, wordLength);
+                    } else if (tries == 4){
+                         word4(randomWord, userWord, wordLength);
+                    } else if (tries == 5){
+                        word5(randomWord, userWord, wordLength);
+                    } else {
+                        alert("Οι προσπάθειες τελείωσαν! Ξαναπροσπάθησε")
+                        startButton.style.display = 'inline-block';
+                        mainBoard.style.display = 'none';
+                        userInputDiv.style.display = 'none';
+                        cleartable();
+                    }
+                }
+                
+        } else {
+            alert("Η λέξη που θα δώσεις πρέπει να έχει 5 γράμματα")
+            startButton.style.display = 'inline-block';
+            mainBoard.style.display = 'none';
+            userInputDiv.style.display = 'none';
+            cleartable();
+        }
     }
 }
 
@@ -664,4 +705,3 @@ var cleartable = function(){
 
 var word1char = words.charAt(1)
 console.log(word1char)
-
