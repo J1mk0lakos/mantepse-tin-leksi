@@ -21,7 +21,6 @@ const maxTries = 6;
 var randomWord;
 var totalTries = 0;
 
-
 guideButton.onclick = function(){
     guideButton.style.display = "none";
     guideDiv.style.display = "block";
@@ -55,7 +54,6 @@ categories.forEach((link) => {
   });
 });
 
-
 const wordCategory = function(categotyClicked){
     var words;
     if (categotyClicked == "Αθλήματα"){
@@ -69,7 +67,6 @@ const wordCategory = function(categotyClicked){
     }
     startGame(words);
 }
-
 
 const startGame = function(words){
     var randomNumber = Math.ceil(words.length * Math.random());
@@ -89,7 +86,7 @@ const startGame = function(words){
     }
     for (let i = 1; i<=5; i++){
         for (let j = 1; j<=char; j++){
-            document.getElementById(`word${i}span${j}`).style.display = "inline-block";
+            document.getElementById(`word${i}span${j}`).style.display = "inline-flex";
         }
     }
     userInputDiv.style.display = "block";
@@ -125,8 +122,7 @@ const gameEngine = function(userWord, randomWord){
         userInputDiv.style.display = 'none'
         restartBTNDIV.style.display = 'none'
     }else if (userWord.length == randomWord.length){
-        if (totalTries <= maxTries){
-            
+        if (totalTries <= maxTries){         
                 for (let i = 0; i <= randomWord.length; i++){
                     if (userWord.charAt(i) === randomWord.charAt(i)){
                         document.getElementById(`word${totalTries}span${i+1}`).style.backgroundColor = "green";
@@ -137,8 +133,7 @@ const gameEngine = function(userWord, randomWord){
                     } else {
                         document.getElementById(`word${totalTries}span${i+1}`).textContent = userWord.charAt(i);
                     }
-                }
-            
+                }   
             } else {
             alert(`Δεν έχεις άλλες προσπάθεις! Η λέξη που έψαχνες να βρεις ήταν ${randomWord}.`)
             clearBoard();
