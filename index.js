@@ -29,11 +29,21 @@ guideButton.onclick = function(){
 }
 
 startButton.onclick = function(){
-    categoryScreen();
+    startButton.style.display = "none";
+    guideDiv.style.display = "none";
+    guideButton.style.display = "none"
+    dropdownDiv.style.display = "block"; 
+    mainBoard.style.display = "none"; 
+    userInputDiv.style.display = 'none';
+    restartBTNDIV.style.display = 'none';
 }
 
 restartButton.onclick = function(){
-    categoryScreen();
+    guideButton.style.display = 'inline-block';
+    startButton.style.display = 'inline-block';
+    mainBoard.style.display = 'none';
+    userInputDiv.style.display = 'none'
+    restartBTNDIV.style.display = 'none'
 }
 
 categories.forEach((link) => {
@@ -45,17 +55,6 @@ categories.forEach((link) => {
   });
 });
 
-const categoryScreen = function(){
-    clearBoard();
-    totalTries = 0;
-    startButton.style.display = "none";
-    guideDiv.style.display = "none";
-    guideButton.style.display = "none"
-    dropdownDiv.style.display = "block"; 
-    mainBoard.style.display = "none"; 
-    userInputDiv.style.display = 'none';
-    restartBTNDIV.style.display = 'none';
-}
 
 const wordCategory = function(categotyClicked){
     var words;
@@ -73,36 +72,35 @@ const wordCategory = function(categotyClicked){
 
 
 const startGame = function(words){
-    randomWordFunction(words);
+    var randomNumber = Math.ceil(words.length * Math.random());
+    randomWord = words[randomNumber]; 
+    if (randomWord == undefined){
+        randomNumber = Math.ceil(words.length * Math.random());
+        randomWord = words[randomNumber]; 
+    }  
+    console.log(randomWord, randomWord.length)
+    var char = randomWord.length
     mainBoard.style.display = "flex";
     restartBTNDIV.style.display = "block";
-    if (randomWord.length == 5){
-        for (let i = 1; i <= 5; i++) {
-            for (let j = 6; j <= 7; j++) {
-                document.getElementById(`word${i}span${j}`).style.display = "none";
-            }
+    for (let i = 1; i<=5; i++){
+        for (let j = 1; j<=7; j++){
+            document.getElementById(`word${i}span${j}`).style.display = "none";
         }
-
-    } else if(randomWord.length == 6){
-        for (let i = 1; i <= 5; i++) {
-            document.getElementById(`word${i}span7`).style.display = "none";
+    }
+    for (let i = 1; i<=5; i++){
+        for (let j = 1; j<=char; j++){
+            document.getElementById(`word${i}span${j}`).style.display = "inline-block";
         }
     }
     userInputDiv.style.display = "block";
     userInput.addEventListener("keydown", function(e) {
         if (e.key === "Enter"){
-            userWordFuncion(randomWord);
+            userWordFuncion();
         }
     });
     submitButton.onclick = function(){
-        userWordFuncion(randomWord);
+        userWordFuncion();
     }
-}
-
-const randomWordFunction = function(words){
-    const randomNumber = Math.ceil(words.length * Math.random());
-    randomWord = words[randomNumber];     
-    console.log(randomWord)
 }
 
 const userWordFuncion = function(){
@@ -121,7 +119,11 @@ const gameEngine = function(userWord, randomWord){
         alert(`Συγχαρητήρια! Βρήκες σωστά την λέξη. Συνολικές προσπάθεις: ${totalTries}`)
         clearBoard();
         totalTries = 0
-        categoryScreen();
+        guideButton.style.display = 'inline-block';
+        startButton.style.display = 'inline-block';
+        mainBoard.style.display = 'none';
+        userInputDiv.style.display = 'none'
+        restartBTNDIV.style.display = 'none'
     }else if (userWord.length == randomWord.length){
         if (totalTries <= maxTries){
             
@@ -141,7 +143,11 @@ const gameEngine = function(userWord, randomWord){
             alert(`Δεν έχεις άλλες προσπάθεις! Η λέξη που έψαχνες να βρεις ήταν ${randomWord}.`)
             clearBoard();
             totalTries = 0
-            categoryScreen();
+            guideButton.style.display = 'inline-block';
+            startButton.style.display = 'inline-block';
+            mainBoard.style.display = 'none';
+            userInputDiv.style.display = 'none'
+            restartBTNDIV.style.display = 'none'
         }
     } else{
         totalTries = totalTries - 1
