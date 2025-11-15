@@ -1,102 +1,81 @@
-const word1span1 = document.getElementById("word1span1");
-const word1span2 = document.getElementById("word1span2");
-const word1span3 = document.getElementById("word1span3");
-const word1span4 = document.getElementById("word1span4");
-const word1span5 = document.getElementById("word1span5");
-const word1span6 = document.getElementById("word1span6");
-const word1span7 = document.getElementById("word1span7");
-
-const word2span1 = document.getElementById("word2span1");
-const word2span2 = document.getElementById("word2span2");
-const word2span3 = document.getElementById("word2span3");
-const word2span4 = document.getElementById("word2span4");
-const word2span5 = document.getElementById("word2span5");
-const word2span6 = document.getElementById("word2span6");
-const word2span7 = document.getElementById("word2span7");
-
-const word3span1 = document.getElementById("word3span1");
-const word3span2 = document.getElementById("word3span2");
-const word3span3 = document.getElementById("word3span3");
-const word3span4 = document.getElementById("word3span4");
-const word3span5 = document.getElementById("word3span5");
-const word3span6 = document.getElementById("word3span6");
-const word3span7 = document.getElementById("word3span7");
-
-const word4span1 = document.getElementById("word4span1");
-const word4span2 = document.getElementById("word4span2");
-const word4span3 = document.getElementById("word4span3");
-const word4span4 = document.getElementById("word4span4");
-const word4span5 = document.getElementById("word4span5");
-const word4span6 = document.getElementById("word4span6");
-const word4span7 = document.getElementById("word4span7");
-
-const word5span1 = document.getElementById("word5span1");
-const word5span2 = document.getElementById("word5span2");
-const word5span3 = document.getElementById("word5span3");
-const word5span4 = document.getElementById("word5span4");
-const word5span5 = document.getElementById("word5span5");
-const word5span6 = document.getElementById("word5span6");
-const word5span7 = document.getElementById("word5span7");
-
+const guideButton = document.getElementById("guideBTN");
+const guideDiv = document.getElementById("guideDIV1");
 const startButton = document.getElementById("startBTN");
+const dropdownDiv = document.getElementById("dropdownDIV");
 const mainBoard = document.getElementById("mainBoard");
 const userInputDiv = document.getElementById("userInputDiv");
-const submitBTN = document.getElementById("submitBTN");
 const userInput = document.getElementById("userInput");
-const guideButton = document.getElementById("guideBTN");
-const guideDIV = document.getElementById("guideDIV1");
-const dropdownMenu = document.getElementById("dropdownDIV");
+const submitButton = document.getElementById("submitBTN")
+const restartBTNDIV = document.getElementById("restartBTNDIV")
+const restartButton = document.getElementById("restartBTN")
 const categories = document.querySelectorAll('.categories');
-const categorySports = document.getElementById("categorySports")
-const categoryCountries = document.getElementById("categoryCountries");
 
+const getSpan = (row, col) => document.getElementById(`word${row}span${col}`);
 
-const wordsSports = ['ΜΠΑΛΑ', 'ΑΘΛΗΤΗΣ', 'ΑΓΩΝΑΣ', 'ΣΤΟΧΟΣ', 'ΤΕΡΜΑ', 'ΟΜΑΔΑ', 'ΝΙΚΗΤΗΣ'];
-const wordsGeo = ['ΒΟΥΝΟ', 'ΛΙΜΝΗ', 'ΠΟΤΑΜΙ', 'ΠΕΔΙΑΔΑ', 'ΘΑΛΑΣΣΑ', 'ΧΑΡΤΗΣ', 'ΚΟΣΜΟΣ', 'ΗΠΕΙΡΟΣ'];
-const wordsAnimals = ['ΛΥΚΟΣ', 'ΤΙΓΡΗ', 'ΖΕΒΡΑ', 'ΑΛΟΓΟ', 'ΓΑΤΑΚΙ', 'ΣΚΥΛΟΣ', 'ΠΙΘΗΚΟΣ', 'ΑΡΚΟΥΔΑ', 'ΔΕΛΦΙΝΙ'];
-const wordsCountries = ['ΙΤΑΛΙΑ', 'ΠΕΡΟΥ', 'ΓΚΑΝΑ', 'ΤΟΝΓΚΑ', 'ΙΝΔΙΑ', 'ΚΥΠΡΟΣ', 'ΜΑΛΤΑ', 'ΓΑΛΛΙΑ', 'ΒΕΛΓΙΟ', 'ΛΙΒΥΗ', 'ΜΑΡΟΚΟ', 'ΜΕΞΙΚΟ', 'ΣΕΡΒΙΑ', 'ΚΕΝΥΑ', 'ΑΓΓΛΙΑ', 'ΕΛΛΑΔΑ', 'ΚΑΤΑΡ']
+const wordsSports = ['ΜΠΑΛΑ', 'ΑΘΛΗΤΗΣ', 'ΑΓΩΝΑΣ', 'ΣΤΟΧΟΣ', 'ΤΕΡΜΑ', 'ΟΜΑΔΑ', 'ΝΙΚΗΤΗΣ', 'ΓΗΠΕΔΟ', 'ΣΤΙΒΟΣ', 'ΡΑΚΕΤΑ', 'ΣΦΑΙΡΑ', 'ΒΟΛΕΣ', 'ΤΑΚΛΙΝ', 'ΑΡΣΙΣ', 'ΒΟΛΕΙ', 'ΚΑΛΑΘΙ', 'ΣΕΡΒΙΣ'];
+const wordsGeo = ['ΒΟΥΝΟ', 'ΛΙΜΝΗ', 'ΠΟΤΑΜΙ', 'ΠΕΔΙΑΔΑ', 'ΘΑΛΑΣΣΑ', 'ΧΑΡΤΗΣ', 'ΚΟΣΜΟΣ', 'ΗΠΕΙΡΟΣ', 'ΑΚΤΕΣ', 'ΚΟΛΠΟΣ', 'ΚΛΙΜΑ', 'ΕΡΗΜΟΣ', 'ΥΦΑΛΟΣ', 'ΤΟΠΙΟ', 'ΥΔΑΤΑ', 'ΧΕΡΣΟΣ', 'ΝΗΣΙΔΑ', 'ΠΛΑΓΙΑ'];
+const wordsAnimals = ['ΛΥΚΟΣ', 'ΤΙΓΡΗ', 'ΑΛΟΓΟ', 'ΓΑΤΑΚΙ', 'ΣΚΥΛΟΣ', 'ΠΙΘΗΚΟΣ', 'ΑΡΚΟΥΔΑ', 'ΔΕΛΦΙΝΙ', 'ΖΕΒΡΑ', 'ΛΑΓΟΣ', 'ΒΙΣΩΝ', 'ΦΩΚΙΑ', 'ΛΥΓΚΑΣ', 'ΚΟΡΑΚΙ', 'ΓΥΠΑΣ', 'ΙΠΠΟΣ', 'ΒΟΥΒΑΛΙ', 'ΤΑΥΡΟΣ', 'ΚΡΙΟΣ'];
+const wordsCountries = ['ΙΤΑΛΙΑ', 'ΠΕΡΟΥ', 'ΓΚΑΝΑ', 'ΤΟΝΓΚΑ', 'ΙΝΔΙΑ', 'ΚΥΠΡΟΣ', 'ΜΑΛΤΑ', 'ΓΑΛΛΙΑ', 'ΒΕΛΓΙΟ', 'ΛΙΒΥΗ', 'ΜΑΡΟΚΟ', 'ΜΕΞΙΚΟ', 'ΣΕΡΒΙΑ', 'ΚΕΝΥΑ', 'ΑΓΓΛΙΑ', 'ΕΛΛΑΔΑ', 'ΚΑΤΑΡ', 'ΚΟΡΕΑ', 'ΣΥΡΙΑ', 'ΖΑΜΠΙΑ', 'ΣΟΥΔΑΝ', 'ΤΣΕΧΙΑ', 'ΝΕΠΑΛ', 'ΠΑΛΑΟΥ', 'ΜΟΝΑΚΟ', 'ΙΣΡΑΗΛ', 'ΣΟΜΑΛΙΑ'];
 
-startButton.onclick = function(){
-    guideButton.style.display = 'none'
-    startButton.style.display = 'none';
-    guideDIV.style.display = 'none';
-    dropdownMenu.style.display = 'block';
-    categories.forEach(category => {
-        category.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent link navigation
-            const categoryId = event.target.id; // e.g. "categorySports"
-            console.log('Clicked category ID:', categoryId);
-            dropdownMenu.style.display = 'none';
-            mainBoard.style.display = 'flex';
-            userInputDiv.style.display = 'block';
-            startGame(categoryId);
-        });
-    });
+const maxTries = 6;
+var randomWord;
+var totalTries = 0;
 
-
-}
 
 guideButton.onclick = function(){
-    guideButton.style.display = 'none'
-    mainBoard.style.display = 'none';
-    userInputDiv.style.display = 'none';
-    guideDIV.style.display = 'block';
+    guideButton.style.display = "none";
+    guideDiv.style.display = "block";
+    startButton.style.display = "inline-block";
 }
 
-var startGame = function(categoryId){
-    console.log("Game Started!")
+startButton.onclick = function(){
+    categoryScreen();
+}
+
+restartButton.onclick = function(){
+    categoryScreen();
+}
+
+categories.forEach((link) => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    var categotyClicked = this.textContent;
+    dropdownDiv.style.display = "none";
+    wordCategory(categotyClicked);
+  });
+});
+
+const categoryScreen = function(){
+    clearBoard();
+    totalTries = 0;
+    startButton.style.display = "none";
+    guideDiv.style.display = "none";
+    guideButton.style.display = "none"
+    dropdownDiv.style.display = "block"; 
+    mainBoard.style.display = "none"; 
+    userInputDiv.style.display = 'none';
+    restartBTNDIV.style.display = 'none';
+}
+
+const wordCategory = function(categotyClicked){
     var words;
-    if (categoryId == "categorySports"){
+    if (categotyClicked == "Αθλήματα"){
         words = wordsSports
-    } else if(categoryId == "categoryGeo"){
+    } else if (categotyClicked == "Γεωγραφία"){
         words = wordsGeo
-    } else if (categoryId == "categoryAnimals"){
+    } else if (categotyClicked == "Ζώα"){
         words = wordsAnimals
-    } else if (categoryId == "categoryCountries"){
+    } else if (categotyClicked == "Χώρες"){
         words = wordsCountries
-    }   
-    var randomWordNumber = Math.floor(Math.random() * words.length);
-    var randomWord = words[randomWordNumber]
+    }
+    startGame(words);
+}
+
+
+const startGame = function(words){
+    randomWordFunction(words);
+    mainBoard.style.display = "flex";
+    restartBTNDIV.style.display = "block";
     if (randomWord.length == 5){
         for (let i = 1; i <= 5; i++) {
             for (let j = 6; j <= 7; j++) {
@@ -109,599 +88,72 @@ var startGame = function(categoryId){
             document.getElementById(`word${i}span7`).style.display = "none";
         }
     }
-    var tries = 0;
-    var userWord = '';
-
-    console.log(randomWord)
+    userInputDiv.style.display = "block";
     userInput.addEventListener("keydown", function(e) {
-    if (e.key === "Enter") {
-            userWord = userInput.value
-            userInput.value = "";
-            if (userWord.includes(" ")){
-                userWord = userWord.replace(/\s+/g, "");
-            }
-            userWord = userWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
-            if (userWord.length == randomWord.length){
-                    tries++;
-                    if (userWord==randomWord){
-                        alert(`Συγχαρητήρια! Βρήκες την λέξη ${randomWord} σωστά!`)
-                        startButton.style.display = 'inline-block';
-                        mainBoard.style.display = 'none';
-                        userInputDiv.style.display = 'none';
-                        cleartable();
-                    } else {
-                        wordLength = randomWord.length
-                        if (tries == 1){
-                            word1(randomWord, userWord, wordLength);
-                        } else if (tries == 2){
-                            word2(randomWord, userWord, wordLength);
-                        } else if (tries == 3){
-                            word3(randomWord, userWord, wordLength);
-                        } else if (tries == 4){
-                            word4(randomWord, userWord, wordLength);
-                        } else if (tries == 5){
-                            word5(randomWord, userWord, wordLength);
-                        } else {
-                            alert("Οι προσπάθειες τελείωσαν! Ξαναπροσπάθησε")
-                            startButton.style.display = 'inline-block';
-                            mainBoard.style.display = 'none';
-                            userInputDiv.style.display = 'none';
-                            cleartable();
-                        }
-                    }
-                
-            } else {
-                alert("Η λέξη που θα δώσεις πρέπει να έχει 5 γράμματα")
-                startButton.style.display = 'inline-block';
-                mainBoard.style.display = 'none';
-                userInputDiv.style.display = 'none';
-                cleartable();
-            }
-        
+        if (e.key === "Enter"){
+            userWordFuncion(randomWord);
         }
     });
-    submitBTN.onclick = function(){
-        userWord = userInput.value
-        userInput.value = "";
-        if (userWord.includes(" ")){
-            userWord = userWord.replace(/\s+/g, "");
-        }
-        userWord = userWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
-        if (userWord.length == randomWord.length){
-                tries++;
-                if (userWord==randomWord){
-                    alert(`Συγχαρητήρια! Βρήκες την λέξη ${randomWord} σωστά!`)
-                     startButton.style.display = 'inline-block';
-                    mainBoard.style.display = 'none';
-                    userInputDiv.style.display = 'none';
-                    cleartable();
-                } else {
-                    wordLength = randomWord.length
-                    if (tries == 1){
-                        word1(randomWord, userWord, wordLength);
-                    } else if (tries == 2){
-                        word2(randomWord, userWord, wordLength);
-                    } else if (tries == 3){
-                        word3(randomWord, userWord, wordLength);
-                    } else if (tries == 4){
-                         word4(randomWord, userWord, wordLength);
-                    } else if (tries == 5){
-                        word5(randomWord, userWord, wordLength);
+    submitButton.onclick = function(){
+        userWordFuncion(randomWord);
+    }
+}
+
+const randomWordFunction = function(words){
+    const randomNumber = Math.ceil(words.length * Math.random());
+    randomWord = words[randomNumber];     
+    console.log(randomWord)
+}
+
+const userWordFuncion = function(){
+    var userWord = userInput.value;
+    userInput.value = "";
+    if (userWord.includes(" ")){
+        userWord = userWord.replace(/\s+/g, "");
+    }
+    userWord = userWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+    gameEngine(userWord, randomWord);
+}
+
+const gameEngine = function(userWord, randomWord){
+    totalTries++
+    if (userWord == randomWord){
+        alert(`Συγχαρητήρια! Βρήκες σωστά την λέξη. Συνολικές προσπάθεις: ${totalTries}`)
+        clearBoard();
+        totalTries = 0
+        categoryScreen();
+    }else if (userWord.length == randomWord.length){
+        if (totalTries <= maxTries){
+            
+                for (let i = 0; i <= randomWord.length; i++){
+                    if (userWord.charAt(i) === randomWord.charAt(i)){
+                        document.getElementById(`word${totalTries}span${i+1}`).style.backgroundColor = "green";
+                        document.getElementById(`word${totalTries}span${i+1}`).textContent = userWord.charAt(i);
+                    } else if (randomWord.includes(userWord.charAt(i))){
+                        document.getElementById(`word${totalTries}span${i+1}`).style.backgroundColor = "orange";
+                        document.getElementById(`word${totalTries}span${i+1}`).textContent = userWord.charAt(i);
                     } else {
-                        alert("Οι προσπάθειες τελείωσαν! Ξαναπροσπάθησε")
-                        startButton.style.display = 'inline-block';
-                        mainBoard.style.display = 'none';
-                        userInputDiv.style.display = 'none';
-                        cleartable();
+                        document.getElementById(`word${totalTries}span${i+1}`).textContent = userWord.charAt(i);
                     }
                 }
-                
-        } else {
-            alert("Η λέξη που θα δώσεις πρέπει να έχει 5 γράμματα")
-            startButton.style.display = 'inline-block';
-            mainBoard.style.display = 'none';
-            userInputDiv.style.display = 'none';
-            cleartable();
+            
+            } else {
+            alert(`Δεν έχεις άλλες προσπάθεις! Η λέξη που έψαχνες να βρεις ήταν ${randomWord}.`)
+            clearBoard();
+            totalTries = 0
+            categoryScreen();
         }
+    } else{
+        totalTries = totalTries - 1
+        alert(`Προσοχή! Η λέξη που ψάχνεις να βρεις έχει ${randomWord.length} γράμματα, όχι ${userWord.length}.`)
     }
 }
 
-var word1 = function(randomWord, userWord, wordLength){
-    var rightWord1 = randomWord.charAt(0)
-    var rightWord2 = randomWord.charAt(1)
-    var rightWord3 = randomWord.charAt(2)
-    var rightWord4 = randomWord.charAt(3)
-    var rightWord5 = randomWord.charAt(4)
-    if (userWord.charAt(0) == rightWord1){
-        word1span1.style.backgroundColor  = "green"
-        word1span1.textContent = userWord.charAt(0)
-    } else if(randomWord.includes(userWord.charAt(0))){
-        word1span1.style.backgroundColor = "orange"
-        word1span1.textContent = userWord.charAt(0)
-    } else{
-        word1span1.textContent = userWord.charAt(0)
-    }
-    if (userWord.charAt(1) == rightWord2){
-        word1span2.style.backgroundColor = "green"
-        word1span2.textContent = userWord.charAt(1)
-    } else if(randomWord.includes(userWord.charAt(1))){
-        word1span2.style.backgroundColor = "orange"
-        word1span2.textContent = userWord.charAt(1)
-    } else{
-        word1span2.textContent = userWord.charAt(1)
-    }
-    if (userWord.charAt(2) == rightWord3){
-        word1span3.style.backgroundColor = "green"
-        word1span3.textContent = userWord.charAt(2)
-    } else if(randomWord.includes(userWord.charAt(2))){
-        word1span3.style.backgroundColor = "orange"
-        word1span3.textContent = userWord.charAt(2)
-    } else{
-        word1span3.textContent = userWord.charAt(2)
-    }
-    if (userWord.charAt(3) == rightWord4){
-        word1span4.style.backgroundColor = "green"
-        word1span4.textContent = userWord.charAt(3)
-    } else if(randomWord.includes(userWord.charAt(3))){
-        word1span4.style.backgroundColor = "orange"
-        word1span4.textContent = userWord.charAt(3)
-    } else{
-        word1span4.textContent = userWord.charAt(3)
-    }
-    if (userWord.charAt(4) == rightWord5){
-        word1span5.style.backgroundColor = "green"
-        word1span5.textContent = userWord.charAt(4)
-    } else if(randomWord.includes(userWord.charAt(4))){
-        word1span5.style.backgroundColor = "orange"
-        word1span5.textContent = userWord.charAt(4)
-    } else{
-        word1span5.textContent = userWord.charAt(4)
-    }
-    if (wordLength == 6){
-        if (userWord.charAt(5) == rightWord5){
-            word1span6.style.backgroundColor = "green"
-            word1span6.textContent = userWord.charAt(5)
-        } else if(randomWord.includes(userWord.charAt(5))){
-            word1span6.style.backgroundColor = "orange"
-            word1span6.textContent = userWord.charAt(5)
-        } else{
-            word1span6.textContent = userWord.charAt(5)
+const clearBoard = function(){
+    for (let row = 1; row<=5; row++){
+        for (let col = 1; col<=7; col++){
+            document.getElementById(`word${row}span${col}`).style.backgroundColor = "lightgray";
+            document.getElementById(`word${row}span${col}`).textContent = "";
         }
-    } else if (wordLength == 7){
-        if (userWord.charAt(5) == rightWord5){
-            word1span6.style.backgroundColor = "green"
-            word1span6.textContent = userWord.charAt(5)
-        } else if(randomWord.includes(userWord.charAt(5))){
-            word1span6.style.backgroundColor = "orange"
-            word1span6.textContent = userWord.charAt(5)
-        } else{
-            word1span6.textContent = userWord.charAt(5)
-        }
-        if (userWord.charAt(6) == rightWord5){
-            word1span7.style.backgroundColor = "green"
-            word1span7.textContent = userWord.charAt(6)
-        } else if(randomWord.includes(userWord.charAt(6))){
-            word1span7.style.backgroundColor = "orange"
-            word1span7.textContent = userWord.charAt(6)
-        } else{
-            word1span7.textContent = userWord.charAt(6)
-        }
-
     }
 }
-
-var word2 = function(randomWord, userWord, wordLength){
-    var rightWord1 = randomWord.charAt(0)
-    var rightWord2 = randomWord.charAt(1)
-    var rightWord3 = randomWord.charAt(2)
-    var rightWord4 = randomWord.charAt(3)
-    var rightWord5 = randomWord.charAt(4)
-    if (userWord.charAt(0) == rightWord1){
-        word2span1.style.backgroundColor = "green"
-        word2span1.textContent = userWord.charAt(0)
-    } else if(randomWord.includes(userWord.charAt(0))){
-        word2span1.style.backgroundColor = "orange"
-        word2span1.textContent = userWord.charAt(0)
-    } else{
-        word2span1.textContent = userWord.charAt(0)
-    }
-    if (userWord.charAt(1) == rightWord2){
-        word2span2.style.backgroundColor = "green"
-        word2span2.textContent = userWord.charAt(1)
-    } else if(randomWord.includes(userWord.charAt(1))){
-        word2span2.style.backgroundColor = "orange"
-        word2span2.textContent = userWord.charAt(1)
-    } else{
-        word2span2.textContent = userWord.charAt(1)
-    }
-    if (userWord.charAt(2) == rightWord3){
-        word2span3.style.backgroundColor = "green"
-        word2span3.textContent = userWord.charAt(2)
-    } else if(randomWord.includes(userWord.charAt(2))){
-        word2span3.style.backgroundColor = "orange"
-        word2span3.textContent = userWord.charAt(2)
-    } else{
-        word2span3.textContent = userWord.charAt(2)
-    }
-    if (userWord.charAt(3) == rightWord4){
-        word2span4.style.backgroundColor = "green"
-        word2span4.textContent = userWord.charAt(3)
-    } else if(randomWord.includes(userWord.charAt(3))){
-        word2span4.style.backgroundColor = "orange"
-        word2span4.textContent = userWord.charAt(3)
-    } else{
-        word2span4.textContent = userWord.charAt(3)
-    }
-    if (userWord.charAt(4) == rightWord5){
-        word2span5.style.backgroundColor = "green"
-        word2span5.textContent = userWord.charAt(4)
-    } else if(randomWord.includes(userWord.charAt(4))){
-        word2span5.style.backgroundColor = "orange"
-        word2span5.textContent = userWord.charAt(4)
-    } else{
-        word2span5.textContent = userWord.charAt(4)
-    }   
-    if (wordLength == 6){
-        if (userWord.charAt(5) == rightWord5){
-            word2span6.style.backgroundColor = "green"
-            word2span6.textContent = userWord.charAt(5)
-        } else if(randomWord.includes(userWord.charAt(5))){
-            word2span6.style.backgroundColor = "orange"
-            word2span6.textContent = userWord.charAt(5)
-        } else{
-            word2span6.textContent = userWord.charAt(5)
-        }
-    } else if (wordLength == 7){
-        if (userWord.charAt(5) == rightWord5){
-            word2span6.style.backgroundColor = "green"
-            word2span6.textContent = userWord.charAt(5)
-        } else if(randomWord.includes(userWord.charAt(5))){
-            word2span6.style.backgroundColor = "orange"
-            word2span6.textContent = userWord.charAt(5)
-        } else{
-            word2span6.textContent = userWord.charAt(5)
-        }
-        if (userWord.charAt(6) == rightWord5){
-            word2span7.style.backgroundColor = "green"
-            word2span7.textContent = userWord.charAt(6)
-        } else if(randomWord.includes(userWord.charAt(6))){
-            word2span7.style.backgroundColor = "orange"
-            word2span7.textContent = userWord.charAt(6)
-        } else{
-            word2span7.textContent = userWord.charAt(6)
-        }
-
-    } 
-}
-
-var word3 = function(randomWord, userWord, wordLength){
-    var rightWord1 = randomWord.charAt(0)
-    var rightWord2 = randomWord.charAt(1)
-    var rightWord3 = randomWord.charAt(2)
-    var rightWord4 = randomWord.charAt(3)
-    var rightWord5 = randomWord.charAt(4)
-    if (userWord.charAt(0) == rightWord1){
-        word3span1.style.backgroundColor = "green"
-        word3span1.textContent = userWord.charAt(0)
-    } else if(randomWord.includes(userWord.charAt(0))){
-        word3span1.style.backgroundColor = "orange"
-        word3span1.textContent = userWord.charAt(0)
-    } else{
-        word3span1.textContent = userWord.charAt(0)
-    }
-    if (userWord.charAt(1) == rightWord2){
-        word3span2.style.backgroundColor = "green"
-        word3span2.textContent = userWord.charAt(1)
-    } else if(randomWord.includes(userWord.charAt(1))){
-        word3span2.style.backgroundColor = "orange"
-        word3span2.textContent = userWord.charAt(1)
-    } else{
-        word3span2.textContent = userWord.charAt(1)
-    }
-    if (userWord.charAt(2) == rightWord3){
-        word3span3.style.backgroundColor = "green"
-        word3span3.textContent = userWord.charAt(2)
-    } else if(randomWord.includes(userWord.charAt(2))){
-        word3span3.style.backgroundColor = "orange"
-        word3span3.textContent = userWord.charAt(2)
-    } else{
-        word3span3.textContent = userWord.charAt(2)
-    }
-    if (userWord.charAt(3) == rightWord4){
-        word3span4.style.backgroundColor = "green"
-        word3span4.textContent = userWord.charAt(3)
-    } else if(randomWord.includes(userWord.charAt(3))){
-        word3span4.style.backgroundColor = "orange"
-        word3span4.textContent = userWord.charAt(3)
-    } else{
-        word3span4.textContent = userWord.charAt(3)
-    }
-    if (userWord.charAt(4) == rightWord5){
-        word3span5.style.backgroundColor = "green"
-        word3span5.textContent = userWord.charAt(4)
-    } else if(randomWord.includes(userWord.charAt(4))){
-        word3span5.style.backgroundColor = "orange"
-        word3span5.textContent = userWord.charAt(4)
-    } else{
-        word3span5.textContent = userWord.charAt(4)
-    }   
-    if (wordLength == 6){
-        if (userWord.charAt(5) == rightWord5){
-            word3span6.style.backgroundColor = "green"
-            word3span6.textContent = userWord.charAt(5)
-        } else if(randomWord.includes(userWord.charAt(5))){
-            word3span6.style.backgroundColor = "orange"
-            word3span6.textContent = userWord.charAt(5)
-        } else{
-            word3span6.textContent = userWord.charAt(5)
-        }
-    } else if (wordLength == 7){
-        if (userWord.charAt(5) == rightWord5){
-            word3span6.style.backgroundColor = "green"
-            word3span6.textContent = userWord.charAt(5)
-        } else if(randomWord.includes(userWord.charAt(5))){
-            word3span6.style.backgroundColor = "orange"
-            word3span6.textContent = userWord.charAt(5)
-        } else{
-            word3span6.textContent = userWord.charAt(5)
-        }
-        if (userWord.charAt(6) == rightWord5){
-            word3span7.style.backgroundColor = "green"
-            word3span7.textContent = userWord.charAt(6)
-        } else if(randomWord.includes(userWord.charAt(6))){
-            word3span7.style.backgroundColor = "orange"
-            word3span7.textContent = userWord.charAt(6)
-        } else{
-            word3span7.textContent = userWord.charAt(6)
-        }
-
-    } 
-}
-
-var word4 = function(randomWord, userWord, wordLength){
-    var rightWord1 = randomWord.charAt(0)
-    var rightWord2 = randomWord.charAt(1)
-    var rightWord3 = randomWord.charAt(2)
-    var rightWord4 = randomWord.charAt(3)
-    var rightWord5 = randomWord.charAt(4)
-    if (userWord.charAt(0) == rightWord1){
-        word4span1.style.backgroundColor = "green"
-        word4span1.textContent = userWord.charAt(0)
-    } else if(randomWord.includes(userWord.charAt(0))){
-        word4span1.style.backgroundColor = "orange"
-        word4span1.textContent = userWord.charAt(0)
-    } else{
-        word4span1.textContent = userWord.charAt(0)
-    }
-    if (userWord.charAt(1) == rightWord2){
-        word4span2.style.backgroundColor = "green"
-        word4span2.textContent = userWord.charAt(1)
-    } else if(randomWord.includes(userWord.charAt(1))){
-        word4span2.style.backgroundColor = "orange"
-        word4span2.textContent = userWord.charAt(1)
-    } else{
-        word4span2.textContent = userWord.charAt(1)
-    }
-    if (userWord.charAt(2) == rightWord3){
-        word4span3.style.backgroundColor = "green"
-        word4span3.textContent = userWord.charAt(2)
-    } else if(randomWord.includes(userWord.charAt(2))){
-        word4span3.style.backgroundColor = "orange"
-        word4span3.textContent = userWord.charAt(2)
-    } else{
-        word4span3.textContent = userWord.charAt(2)
-    }
-    if (userWord.charAt(3) == rightWord4){
-        word4span4.style.backgroundColor = "green"
-        word4span4.textContent = userWord.charAt(3)
-    } else if(randomWord.includes(userWord.charAt(3))){
-        word4span4.style.backgroundColor = "orange"
-        word4span4.textContent = userWord.charAt(3)
-    } else{
-        word4span4.textContent = userWord.charAt(3)
-    }
-    if (userWord.charAt(4) == rightWord5){
-        word4span5.style.backgroundColor = "green"
-        word4span5.textContent = userWord.charAt(4)
-    } else if(randomWord.includes(userWord.charAt(4))){
-        word4span5.style.backgroundColor = "orange"
-        word4span5.textContent = userWord.charAt(4)
-    } else{
-        word4span5.textContent = userWord.charAt(4)
-    } 
-    if (wordLength == 6){
-        if (userWord.charAt(5) == rightWord5){
-            word4span6.style.backgroundColor = "green"
-            word4span6.textContent = userWord.charAt(5)
-        } else if(randomWord.includes(userWord.charAt(5))){
-            word4span6.style.backgroundColor = "orange"
-            word4span6.textContent = userWord.charAt(5)
-        } else{
-            word4span6.textContent = userWord.charAt(5)
-        }
-    } else if (wordLength == 7){
-        if (userWord.charAt(5) == rightWord5){
-            word4span6.style.backgroundColor = "green"
-            word4span6.textContent = userWord.charAt(5)
-        } else if(randomWord.includes(userWord.charAt(5))){
-            word4span6.style.backgroundColor = "orange"
-            word4span6.textContent = userWord.charAt(5)
-        } else{
-            word4span6.textContent = userWord.charAt(5)
-        }
-        if (userWord.charAt(6) == rightWord5){
-            word4span7.style.backgroundColor = "green"
-            word4span7.textContent = userWord.charAt(6)
-        } else if(randomWord.includes(userWord.charAt(6))){
-            word4span7.style.backgroundColor = "orange"
-            word4span7.textContent = userWord.charAt(6)
-        } else{
-            word4span7.textContent = userWord.charAt(6)
-        }
-
-    }   
-}
-
-var word5 = function(randomWord, userWord, wordLength){
-    var rightWord1 = randomWord.charAt(0)
-    var rightWord2 = randomWord.charAt(1)
-    var rightWord3 = randomWord.charAt(2)
-    var rightWord4 = randomWord.charAt(3)
-    var rightWord5 = randomWord.charAt(4)
-    if (userWord.charAt(0) == rightWord1){
-        word5span1.style.backgroundColor = "green"
-        word5span1.textContent = userWord.charAt(0)
-    } else if(randomWord.includes(userWord.charAt(0))){
-        word5span1.style.backgroundColor = "orange"
-        word5span1.textContent = userWord.charAt(0)
-    } else{
-        word5span1.textContent = userWord.charAt(0)
-    }
-    if (userWord.charAt(1) == rightWord2){
-        word5span2.style.backgroundColor = "green"
-        word5span2.textContent = userWord.charAt(1)
-    } else if(randomWord.includes(userWord.charAt(1))){
-        word5span2.style.backgroundColor = "orange"
-        word5span2.textContent = userWord.charAt(1)
-    } else{
-        word5span2.textContent = userWord.charAt(1)
-    }
-    if (userWord.charAt(2) == rightWord3){
-        word5span3.style.backgroundColor = "green"
-        word5span3.textContent = userWord.charAt(2)
-    } else if(randomWord.includes(userWord.charAt(2))){
-        word5span3.style.backgroundColor = "orange"
-        word5span3.textContent = userWord.charAt(2)
-    } else{
-        word5span3.textContent = userWord.charAt(2)
-    }
-    if (userWord.charAt(3) == rightWord4){
-        word5span4.style.backgroundColor = "green"
-        word5span4.textContent = userWord.charAt(3)
-    } else if(randomWord.includes(userWord.charAt(3))){
-        word5span4.style.backgroundColor = "orange"
-        word5span4.textContent = userWord.charAt(3)
-    } else{
-        word5span4.textContent = userWord.charAt(3)
-    }
-    if (userWord.charAt(4) == rightWord5){
-        word5span5.style.backgroundColor = "green"
-        word5span5.textContent = userWord.charAt(4)
-    } else if(randomWord.includes(userWord.charAt(4))){
-        word5span5.style.backgroundColor = "orange"
-        word5span5.textContent = userWord.charAt(4)
-    } else{
-        word5span5.textContent = userWord.charAt(4)
-    } 
-        if (wordLength == 6){
-        if (userWord.charAt(5) == rightWord5){
-            word5span6.style.backgroundColor = "green"
-            word5span6.textContent = userWord.charAt(5)
-        } else if(randomWord.includes(userWord.charAt(5))){
-            word5span6.style.backgroundColor = "orange"
-            word5span6.textContent = userWord.charAt(5)
-        } else{
-            word5span6.textContent = userWord.charAt(5)
-        }
-    } else if (wordLength == 7){
-        if (userWord.charAt(5) == rightWord5){
-            word5span6.style.backgroundColor = "green"
-            word5span6.textContent = userWord.charAt(5)
-        } else if(randomWord.includes(userWord.charAt(5))){
-            word5span6.style.backgroundColor = "orange"
-            word5span6.textContent = userWord.charAt(5)
-        } else{
-            word5span6.textContent = userWord.charAt(5)
-        }
-        if (userWord.charAt(6) == rightWord5){
-            word5span7.style.backgroundColor = "green"
-            word5span7.textContent = userWord.charAt(6)
-        } else if(randomWord.includes(userWord.charAt(6))){
-            word5span7.style.backgroundColor = "orange"
-            word5span7.textContent = userWord.charAt(6)
-        } else{
-            word5span7.textContent = userWord.charAt(6)
-        }
-
-    }   
-}
-
-var cleartable = function(){
-    word1span1.textContent = '';
-    word1span2.textContent = '';
-    word1span3.textContent = '';
-    word1span4.textContent = '';
-    word1span5.textContent = '';
-    word1span6.textContent = '';
-    word1span7.textContent = '';
-    word1span1.style.backgroundColor = "lightgray"
-    word1span2.style.backgroundColor = "lightgray"
-    word1span3.style.backgroundColor = "lightgray"
-    word1span4.style.backgroundColor = "lightgray"
-    word1span5.style.backgroundColor = "lightgray"
-    word1span6.style.backgroundColor = "lightgray"
-    word1span7.style.backgroundColor = "lightgray"
-
-    word2span1.textContent = '';
-    word2span2.textContent = '';
-    word2span3.textContent = '';
-    word2span4.textContent = '';
-    word2span5.textContent = '';
-    word2span6.textContent = '';
-    word2span7.textContent = '';
-    word2span1.style.backgroundColor = "lightgray"
-    word2span2.style.backgroundColor = "lightgray"
-    word2span3.style.backgroundColor = "lightgray"
-    word2span4.style.backgroundColor = "lightgray"
-    word2span5.style.backgroundColor = "lightgray"
-    word2span6.style.backgroundColor = "lightgray"
-    word2span7.style.backgroundColor = "lightgray"
-
-    word3span1.textContent = '';
-    word3span2.textContent = '';
-    word3span3.textContent = '';
-    word3span4.textContent = '';
-    word3span5.textContent = '';
-    word3span6.textContent = '';
-    word3span7.textContent = '';
-    word3span1.style.backgroundColor = "lightgray"
-    word3span2.style.backgroundColor = "lightgray"
-    word3span3.style.backgroundColor = "lightgray"
-    word3span4.style.backgroundColor = "lightgray"
-    word3span5.style.backgroundColor = "lightgray"
-    word3span6.style.backgroundColor = "lightgray"
-    word3span7.style.backgroundColor = "lightgray"
-
-    word4span1.textContent = '';
-    word4span2.textContent = '';
-    word4span3.textContent = '';
-    word4span4.textContent = '';
-    word4span5.textContent = '';
-    word4span6.textContent = '';
-    word4span7.textContent = '';
-    word4span1.style.backgroundColor = "lightgray"
-    word4span2.style.backgroundColor = "lightgray"
-    word4span3.style.backgroundColor = "lightgray"
-    word4span4.style.backgroundColor = "lightgray"
-    word4span5.style.backgroundColor = "lightgray"
-    word4span6.style.backgroundColor = "lightgray"
-    word4span7.style.backgroundColor = "lightgray"
-
-    word5span1.textContent = '';
-    word5span2.textContent = '';
-    word5span3.textContent = '';
-    word5span4.textContent = '';
-    word5span5.textContent = '';
-    word5span6.textContent = '';
-    word5span7.textContent = '';
-    word5span1.style.backgroundColor = "lightgray"
-    word5span2.style.backgroundColor = "lightgray"
-    word5span3.style.backgroundColor = "lightgray"
-    word5span4.style.backgroundColor = "lightgray"
-    word5span5.style.backgroundColor = "lightgray"
-    word5span6.style.backgroundColor = "lightgray"
-    word5span7.style.backgroundColor = "lightgray"
-}
-
-var word1char = words.charAt(1)
-console.log(word1char)
